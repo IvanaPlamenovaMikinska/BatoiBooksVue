@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-    <h1 id="form-title">Añadir Libro</h1>
+    <h1 id="form">Añadir Libro</h1>
     <form @submit.prevent="addBook" id="bookForm">
         <div>
             <label> Id:</label>

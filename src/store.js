@@ -5,6 +5,7 @@ export const store = {
     state: reactive({
         books: [],
         modules: [],
+        messages: [],
     }),
 
 
@@ -36,7 +37,10 @@ export const store = {
         const libroCambiado = await changeDBBook(libro)
         const index = store.state.books.indexOf(libro)
         store.state.books.splice(index, 1, libroCambiado)
-    }
+    },
 
+    remove(index) {
+        store.state.messages.splice(index, 1);
+    }
 }
 

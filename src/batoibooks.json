@@ -2223,15 +2223,6 @@
       "pages": 34,
       "status": "nuevo",
       "comments": "dxf"
-    },
-    {
-      "id": "fdc8",
-      "moduleCode": "0028",
-      "publisher": "werer",
-      "price": 443,
-      "pages": 234,
-      "status": "bueno",
-      "comments": "dfd"
     }
   ]
 }
