@@ -25,3 +25,9 @@ export default {
         <BookItem v-for="book in books" :id="book.id" :book="book" @removeBook="removeBook"></BookItem>
     </div>
 </template>
+
+<style scoped>
+.error {
+    color: red;
+}
+</style>

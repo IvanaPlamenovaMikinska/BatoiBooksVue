@@ -2205,24 +2205,6 @@
       "price": 32,
       "pages": 2,
       "comments": "dfg"
-    },
-    {
-      "id": "e715",
-      "moduleCode": "0022",
-      "publisher": "dfsd",
-      "price": 434,
-      "pages": 344,
-      "status": "malo",
-      "comments": "dsfg"
-    },
-    {
-      "id": "b3ef",
-      "moduleCode": "0028",
-      "publisher": "addd",
-      "price": 23,
-      "pages": 34,
-      "status": "nuevo",
-      "comments": "dxf"
     }
   ]
 }
