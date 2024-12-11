@@ -15,28 +15,39 @@ export const store = {
             store.state.books.push(nuevoLibro)
             return nuevoLibro;
         } catch (error) {
-            alert(error)
+            store.state.messages.push(error)
         }
-
     },
 
     async populate() {
-        const libros = await getDBBooks();
-        const modulos = await getDBModules();
-        store.state.books = libros;
-        store.state.modules = modulos;
+        try {
+            const libros = await getDBBooks();
+            const modulos = await getDBModules();
+            store.state.books = libros;
+            store.state.modules = modulos;
+        } catch (error) {
+            store.state.messages.push(error)
+        }
     },
 
     async removeBook(id) {
-        const libro = await removeDBBook(id)
-        const index = store.state.books.indexOf(libro)
-        store.state.books.splice(index, 1)
+        try {
+            const libro = await removeDBBook(id)
+            const index = store.state.books.indexOf(libro)
+            store.state.books.splice(index, 1)
+        } catch (error) {
+            store.state.messages.push(error)
+        }
     },
 
     async changeBook(libro) {
-        const libroCambiado = await changeDBBook(libro)
-        const index = store.state.books.indexOf(libro)
-        store.state.books.splice(index, 1, libroCambiado)
+        try {
+            const libroCambiado = await changeDBBook(libro)
+            const index = store.state.books.indexOf(libro)
+            store.state.books.splice(index, 1, libroCambiado)
+        } catch (error) {
+            store.state.messages.push(error)
+        }
     },
 
     remove(index) {
