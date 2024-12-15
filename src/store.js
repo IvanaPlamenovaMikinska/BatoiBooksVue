@@ -1,5 +1,5 @@
 import { reactive } from 'vue'
-import { addDBBook, getDBBooks, removeDBBook } from './books.api'
+import { addDBBook, getDBBooks, removeDBBook, getDBBook, changeDBBook } from './books.api'
 import { getDBModules } from './modules.api'
 export const store = {
     state: reactive({
@@ -43,7 +43,7 @@ export const store = {
     async changeBook(libro) {
         try {
             const libroCambiado = await changeDBBook(libro)
-            const index = store.state.books.indexOf(libro)
+            const index = this.state.books.findIndex(book => book.id === libro.id)
             store.state.books.splice(index, 1, libroCambiado)
         } catch (error) {
             store.state.messages.push(error)
@@ -52,6 +52,14 @@ export const store = {
 
     remove(index) {
         store.state.messages.splice(index, 1);
+    },
+
+    getDBBook(id) {
+        try{
+            return getDBBook(id)
+        } catch (error) {
+            store.state.messages.push(error)
+        }
     }
 }
 

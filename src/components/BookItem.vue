@@ -11,6 +11,9 @@ export default {
     methods: {
         remove() {
             this.$emit('removeBook', this.book.id)
+        },
+        edit() {
+            this.$router.push({name: 'form', params: {id: this.book.id}})
         }
     },
     computed: {

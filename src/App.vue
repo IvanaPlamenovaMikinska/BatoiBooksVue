@@ -33,10 +33,7 @@ export default {
     <h1>BatoiBooks</h1>
     <AppMenu></AppMenu>
     <AppMessages></AppMessages>
-    <BookList></BookList>
-    <AddBook></AddBook>
-    <AppCart></AppCart>
-    <AppAbout></AppAbout>
+    <router-view></router-view>
   </div>
   <footer>Ivana - BatoiBooks</footer>
 </template>

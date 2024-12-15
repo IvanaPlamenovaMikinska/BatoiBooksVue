@@ -2143,7 +2143,7 @@
       "moduleCode": "5021",
       "publisher": "McGraw-Hill",
       "price": 75,
-      "pages": 273,
+      "pages": 2734444,
       "status": "new",
       "photo": "",
       "comments": "Sense obrir",
@@ -2154,8 +2154,8 @@
       "userId": 4,
       "moduleCode": "5021",
       "publisher": "McGraw-Hill",
-      "price": 15,
-      "pages": 173,
+      "price": 1544444,
+      "pages": 4444,
       "status": "bad",
       "photo": "",
       "comments": "Fet pols",
@@ -2178,7 +2178,7 @@
       "userId": 4,
       "moduleCode": "5025",
       "publisher": "Apunts",
-      "price": 35,
+      "price": 35666,
       "pages": 73,
       "status": "good",
       "photo": "",
@@ -2187,24 +2187,13 @@
       "id": "9"
     },
     {
-      "userId": 5,
-      "moduleCode": "5021",
-      "publisher": "Apunts",
-      "price": 5,
-      "pages": 57,
-      "status": "good",
-      "photo": "",
-      "comments": "",
-      "soldDate": "",
-      "id": "10"
-    },
-    {
-      "id": "d166",
-      "moduleCode": "0049",
-      "publisher": "sdfsd",
-      "price": 32,
-      "pages": 2,
-      "comments": "dfg"
+      "id": "3998",
+      "moduleCode": "0046",
+      "publisher": "kjsdfn",
+      "price": 9999933,
+      "pages": 123,
+      "status": "new",
+      "comments": "kjsnf"
     }
   ]
 }

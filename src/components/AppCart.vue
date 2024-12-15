@@ -3,5 +3,5 @@ export default {}
 </script>
 
 <template>
-   <h1>Libros en el carrito</h1>
+   <h1 id="cart">Libros en el carrito</h1>
 </template>
