@@ -1,4 +1,5 @@
 <script>
+import { mapActions } from 'pinia';
 import logoBatoi from './assets/logoBatoi.png';
 import AddBook from './components/AddBook.vue';
 import AppAbout from './components/AppAbout.vue';
@@ -6,7 +7,7 @@ import AppCart from './components/AppCart.vue';
 import AppMenu from './components/AppMenu.vue'
 import AppMessages from './components/AppMessages.vue';
 import BookList from './components/BookList.vue';
-import { store } from './store';
+import {useDataStore } from './stores/store';
 export default {
   components: {
     AppMenu,
@@ -21,8 +22,12 @@ export default {
       logoBatoi,
     }
   },
+
+  methods: {
+    ...mapActions(useDataStore, ['populate']),
+  },
   mounted() {
-    store.populate()
+    this.populate()
   }
 }
 </script>

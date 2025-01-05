@@ -1,5 +1,7 @@
 <script>
-import { store } from '@/store';
+import { useDataStore } from '../stores/store';
+import { mapActions, mapState } from 'pinia';
+
 
 export default {
     props: {
@@ -8,18 +10,11 @@ export default {
             required: true,
         },
     },
-    methods: {
-        remove() {
-            this.$emit('removeBook', this.book.id)
-        },
-        edit() {
-            this.$router.push({name: 'form', params: {id: this.book.id}})
-        }
-    },
     computed: {
-        modules() {
-            return store.state.modules
-        }
+        ...mapState(useDataStore, {
+            modules: 'modules',
+            modulesName: 'modulesName',
+        })
     }
 }
 </script>
@@ -27,23 +22,14 @@ export default {
 <template>
     <div>
         <h2>Id: {{ book.id }}</h2>
-        <p>Modulo: {{ modules.find(module => module.code === book.moduleCode).cliteral }}</p>
+        <p>Modulo: {{ modulesName(book.moduleCode) }}</p>
         <p>Editorial: {{ book.publisher }}</p>
         <p>Precio: {{ book.price }}€</p>
         <p>Páginas: {{ book.pages }}</p>
         <p>Estado: {{ book.status }}</p>
         <p>{{ book.soldDate ? "Vendido el " + book.soldDate : "En venta" }}</p>
         <p>Comentarios: {{ book.comments }}</p>
-
-        <button @click="add" class="add">
-            <span class="material-icons">add_shopping_cart</span>
-        </button>
-        <button @click="edit" class="edit">
-            <span class="material-icons">edit</span>
-        </button>
-        <button @click="remove" class="delete">
-            <span class="material-icons">delete</span>
-        </button>
+        <slot></slot>
     </div>
 
 </template>
