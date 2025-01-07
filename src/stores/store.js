@@ -54,7 +54,7 @@ export const useDataStore = defineStore('data', {
         async changeBook(libro) {
             try {
                 const libroCambiado = await changeDBBook(libro)
-                const index = this.state.books.findIndex(book => book.id === libro.id)
+                const index = this.books.findIndex(book => book.id === libro.id)
                 this.books.splice(index, 1, libroCambiado)
             } catch (error) {
                 this.messages.push(error)

@@ -2,9 +2,10 @@
 import { mapActions, mapState } from 'pinia';
 import { useDataStore } from '../stores/store'
 import { ErrorMessage, Form, Field } from 'vee-validate';
+import * as yup from 'yup';
 export default {
     name: 'AddBook',
-    components:{
+    components: {
         ErrorMessage,
         Form,
         Field,
@@ -19,6 +20,15 @@ export default {
     methods: {
         ...mapActions(useDataStore, ['changeBook', 'addBook', 'getDBBook']),
         async addOrEdit() {
+            const exists = this.books.find(
+                (book) =>
+                    book.moduleCode === this.newBook.moduleCode
+            );
+
+            if (exists) {
+                alert('El libro con ese módulo ya existe');
+                return;
+            }
             if (this.isEdit) {
                 await this.changeBook(this.newBook)
             } else {
@@ -48,9 +58,19 @@ export default {
     },
 
     data() {
+        const mySchema = yup.object({
+            moduleCode: yup.string().required('El módulo es obligatorio.'),
+            publisher: yup.string().required('La editorial es obligatoria.'),
+            price: yup.number().required('El precio es obligatorio.').min(0, 'El precio debe ser mayor o igual a 0.')
+                .typeError('El precio debe ser un número válido.'),
+            pages: yup.number().required('El número de páginas es obligatorio.').min(0, 'El número de páginas debe ser mayor o igual a 0.')
+                .integer('El número de páginas debe ser un número entero.').typeError('El número de páginas debe ser un número válido.'),
+            status: yup.string().required('El estado es obligatorio.'),
+        })
         return {
             newBook: {},
             isEdit: false,
+            schema: mySchema,
         }
     },
     mounted() {
@@ -61,7 +81,7 @@ export default {
 
 <template>
     <h1 id="form">{{ isEdit ? 'Editar Libro' : 'Añadir Libro' }}</h1>
-    <Form @submit="addOrEdit" id="bookForm">
+    <Form @submit="addOrEdit" id="bookForm" :validation-schema="schema">
         <div>
             <label> Id:</label>
             <input v-model="newBook.id" type="text" id="id" disabled>
@@ -119,3 +139,11 @@ export default {
         <button type="reset">Reset</button>
     </Form>
 </template>
+
+<style scoped>
+.error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 0.25em;
+}
+</style>
