@@ -22,7 +22,9 @@ export default {
         async addOrEdit() {
             const exists = this.books.find(
                 (book) =>
-                    book.moduleCode === this.newBook.moduleCode
+                    book.moduleCode === this.newBook.moduleCode &&
+                    book.id !== this.newBook.id &&
+                    book.userId === this.newBook.userId
             );
 
             if (exists) {
@@ -46,7 +48,7 @@ export default {
                 this.newBook = book
             } else {
                 this.isEdit = false
-                this.newBook = {}
+                this.newBook = {userId: 1}
             }
         }
     },

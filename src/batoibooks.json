@@ -2152,7 +2152,7 @@
     },
     {
       "userId": 4,
-      "moduleCode": "5021",
+      "moduleCode": "0045",
       "publisher": "McGraw-Hill",
       "price": 1544444,
       "pages": 4444,
@@ -2163,31 +2163,24 @@
       "id": "7"
     },
     {
-      "id": "20fa",
-      "moduleCode": "0028",
-      "publisher": "ffssf",
-      "price": 33,
-      "pages": 23,
+      "id": "ce62",
+      "userId": 1,
+      "moduleCode": "0020",
+      "publisher": "ttt",
+      "price": 7,
+      "pages": 234,
       "status": "good",
-      "comments": "ffeg"
+      "comments": "ttr"
     },
     {
-      "id": "7edb",
-      "moduleCode": "0046",
-      "publisher": "eee",
-      "price": 2,
-      "pages": 3,
+      "id": "20f1",
+      "userId": 1,
+      "moduleCode": "0017",
+      "publisher": "loi",
+      "price": 56,
+      "pages": 465,
       "status": "good",
-      "comments": "dd"
-    },
-    {
-      "id": "aa33",
-      "comments": "ddd",
-      "price": 2,
-      "pages": 2,
-      "moduleCode": "0045",
-      "publisher": "ddddd",
-      "status": "bad"
+      "comments": "yyy"
     }
   ]
 }
